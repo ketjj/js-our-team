@@ -11,60 +11,66 @@ const members = [
     firstname: 'Wayne',
     lastname : 'Barnett',
     role: 'Founder & CEO',
-    foto: 'img/wayne-barnett-founder-ceo.jpg'
+    foto: 'wayne-barnett-founder-ceo.jpg'
   },
   {
     firstname: 'Angela',
     lastname : 'Caroll',
     role: 'Chief & Editor',
-    foto: 'img/angela-caroll-chief-editor.jpg'
+    foto: 'angela-caroll-chief-editor.jpg'
   },
   {
     firstname: 'Walter',
     lastname : 'Gordon',
     role: 'Office Manager',
-    foto: 'img/walter-gordon-office-manager.jpg'
+    foto: 'walter-gordon-office-manager.jpg'
   },
   {
     firstname: 'Angela',
     lastname : 'Lopez',
     role: 'Social Media Manager',
-    foto: 'img/angela-lopez-social-media-manager.jpg'
+    foto: 'angela-lopez-social-media-manager.jpg'
   },
   {
     firstname: 'Scott',
     lastname : 'Estrada',
     role: 'Developer',
-    foto: 'img/scott-estrada-developer.jpg'
+    foto: 'scott-estrada-developer.jpg'
   },
   {
     firstname: 'Barbara',
     lastname : 'Ramos',
     role: 'Graphic Designer',
-    foto: 'img/barbara-ramos-graphic-designer.jpg'
+    foto: 'barbara-ramos-graphic-designer.jpg'
   }
 ];
 
+createTeam();
 
-// Genero le mie card 
-for(let i in members){
-  const cards =
-  `
-  <div class="team-card">
-            <div class="card-image">
-              <img
-                src="${members[i].foto}"
-                alt="${members[i].firstname} ${members[i].lastname}"
-              />
+function createTeam(){
+
+  // for(let teamMembers of team)
+
+  for(let i in members){
+    const cards =
+    `
+    <div class="team-card">
+              <div class="card-image">
+                <img
+                  src="img/${members[i].foto}"
+                  alt="${members[i].firstname} ${members[i].lastname}"
+                />
+              </div>
+              <div class="card-text">
+                <h3>${members[i].firstname} ${members[i].lastname}</h3>
+                <p>${members[i].role}</p>
+              </div>
             </div>
-            <div class="card-text">
-              <h3>${members[i].firstname} ${members[i].lastname}</h3>
-              <p>${members[i].role}</p>
-            </div>
-          </div>
-  `
-  document.querySelector('.team-container').innerHTML += cards;
+    `
+    document.querySelector('.team-container').innerHTML += cards;
+  }
 }
+// Genero le mie card 
 
 
 //Tutto dal click sul pulsante
@@ -90,7 +96,7 @@ function addmember(){
   <div class="team-card">
             <div class="card-image">
               <img
-                src="${insertImage}"
+                src="img/${insertImage}"
                 alt="" 
               />
 
@@ -102,7 +108,8 @@ function addmember(){
           </div>
   `;
   document.querySelector('.team-container').innerHTML += createExtraCard;
-
+  
+  reset();
 }
 
 
@@ -114,4 +121,10 @@ function validateForm(input) {
     alert('Compilare almeno nome e ruolo');
     createExtraCard.classList.add('hide');
   }
+}
+
+function reset(){
+  document.getElementById('name').value = '';
+  document.getElementById('role').value = '';
+  document.getElementById('image').value = '';
 }
