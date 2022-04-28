@@ -73,24 +73,39 @@ document.getElementById('addMemberButton').addEventListener('click', addmember);
 function addmember(){
 
   const insertName = document.getElementById('name').value;
-  // console.log(insertName);
   const insertRole = document.getElementById('role').value;
   const insertImage = document.getElementById('image').value;
+  // console.log(insertName);
+  
+  const input = document.querySelector("input");
+  validateForm(input);
+  
 
-  const createExtraCard = 
+  let createExtraCard = 
   `
   <div class="team-card">
             <div class="card-image">
               <img
                 src="${insertImage}"
-                alt=""
+                alt="" 
               />
+
             </div>
             <div class="card-text">
               <h3>${insertName}</h3>
               <p>${insertRole}</p>
             </div>
           </div>
-  `
+  `;
   document.querySelector('.team-container').innerHTML += createExtraCard;
+
+}
+
+
+function validateForm(input) {
+
+  if (input.value.trim().length === 0) {
+    alert('Compilare almeno nome e ruolo');
+    createExtraCard.classList.add('hide');
+  }
 }
