@@ -46,7 +46,7 @@ const members = [
 ];
 
 
-
+// Genero le mie card 
 for(let i in members){
   const cards =
   `
@@ -67,6 +67,8 @@ for(let i in members){
 }
 
 
+//Tutto dal click sul pulsante
+
 
 document.getElementById('addMemberButton').addEventListener('click', addmember);
 
@@ -80,6 +82,8 @@ function addmember(){
   const input = document.querySelector("input");
   validateForm(input);
   
+
+  // creo un nuovo membro/card grazie alle informazioni ricevute dagli input
 
   let createExtraCard = 
   `
@@ -101,6 +105,8 @@ function addmember(){
 
 }
 
+
+//comfermo se input siano compilati
 
 function validateForm(input) {
 
