@@ -69,13 +69,6 @@ section {
   cursor: pointer;
 }
 
-.extraimage {
-  overflow: hidden;
-  min-height: 370px;
-  background-color: #67615a;
-  cursor: pointer;
-}
-
 .card-image img {
   display: block;
 
@@ -130,13 +123,10 @@ button {
 button {
   width: 50%;
   margin-top: 2em;
-
+  cursor: pointer;
   font-size: 1rem;
 }
-.show {
-  display: block;
-}
-
-.hide {
-  display: none;;
+.err{
+  font-size:14px;
+  color:red;
 }

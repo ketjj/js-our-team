@@ -8,46 +8,39 @@
 
 const members = [
   {
-    firstname: 'Wayne',
-    lastname : 'Barnett',
+    name: 'Wayne Barnett',
     role: 'Founder & CEO',
     foto: 'wayne-barnett-founder-ceo.jpg'
   },
   {
-    firstname: 'Angela',
-    lastname : 'Caroll',
+    name: 'Angela Caroll',
     role: 'Chief & Editor',
     foto: 'angela-caroll-chief-editor.jpg'
   },
   {
-    firstname: 'Walter',
-    lastname : 'Gordon',
+    name: 'Walter Gordon',
     role: 'Office Manager',
     foto: 'walter-gordon-office-manager.jpg'
   },
   {
-    firstname: 'Angela',
-    lastname : 'Lopez',
+    name: 'Angela Lopez',
     role: 'Social Media Manager',
     foto: 'angela-lopez-social-media-manager.jpg'
   },
   {
-    firstname: 'Scott',
-    lastname : 'Estrada',
+    name: 'Scott Estrada',
     role: 'Developer',
     foto: 'scott-estrada-developer.jpg'
   },
   {
-    firstname: 'Barbara',
-    lastname : 'Ramos',
+    name: 'Barbara Ramos',
     role: 'Graphic Designer',
     foto: 'barbara-ramos-graphic-designer.jpg'
   }
 ];
+myTeam();
 
-createTeam();
-
-function createTeam(){
+function myTeam(){
 
   // for(let teamMembers of team)
 
@@ -58,11 +51,11 @@ function createTeam(){
               <div class="card-image">
                 <img
                   src="img/${members[i].foto}"
-                  alt="${members[i].firstname} ${members[i].lastname}"
+                  alt="${members[i].name}"
                 />
               </div>
               <div class="card-text">
-                <h3>${members[i].firstname} ${members[i].lastname}</h3>
+                <h3>${members[i].name}</h3>
                 <p>${members[i].role}</p>
               </div>
             </div>
@@ -78,48 +71,53 @@ function createTeam(){
 
 document.getElementById('addMemberButton').addEventListener('click', addmember);
 
-function addmember(){
-
+function addMember(){
   const insertName = document.getElementById('name').value;
   const insertRole = document.getElementById('role').value;
-  const insertImage = document.getElementById('image').value;
-  // console.log(insertName);
-  
-  const input = document.querySelector("input");
-  validateForm(input);
-  
+  let insertImage = document.getElementById('image');
+  if(insertImage.value == ''){
+    insertImage = 'no-photo.jpg'
+  }
 
-  // creo un nuovo membro/card grazie alle informazioni ricevute dagli input
+  validateForm(insertName,insertRole);
 
-  let createExtraCard = 
-  `
+  const newCard = `
   <div class="team-card">
-            <div class="card-image">
-              <img
-                src="img/${insertImage}"
-                alt="" 
-              />
-
-            </div>
-            <div class="card-text">
-              <h3>${insertName}</h3>
-              <p>${insertRole}</p>
-            </div>
-          </div>
-  `;
-  document.querySelector('.team-container').innerHTML += createExtraCard;
-  
+  <div class="card-image">
+    <img
+      src="img/${insertImage}"
+      alt="${insertName}"
+    />
+  </div>
+  <div class="card-text">
+    <h3>${insertName}</h3>
+    <p>${insertRole}</p>
+  </div>
+</div>
+  `
+  document.querySelector('.team-container').innerHTML += newCard;
   reset();
 }
 
-
 //comfermo se input siano compilati
 
-function validateForm(input) {
+/*function validateForm(input) {
 
   if (input.value.trim().length === 0) {
     alert('Compilare almeno nome e ruolo');
     createExtraCard.classList.add('hide');
+  }
+}*/
+
+function validateForm(str, str2){
+
+  if (str.trim().length === 0 ) {
+    document.getElementById('errorMsg').textContent = `Inserisci il campo: Nome `
+    newCard.classList.add('hide');
+    //createExtraCard.classList.add('hide');
+  } else if(str2.trim().length === 0){
+    document.getElementById('errorMsg2').textContent = `Inserisci il campo: Job`
+    newCard.classList.add('hide');
   }
 }
 

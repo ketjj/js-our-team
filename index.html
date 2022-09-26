@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600&family=Vidaloka&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-
     <section id="team">
       <div class="container">
         <h2 class="section-title">Our team</h2>
@@ -24,6 +24,20 @@
         <div class="team-container">
           <!-- Inseriamo inizialmente una card statica per stilarla e vedere l'effetto finale -->
 
+          <!-- <div class="team-card">
+            <div class="card-image">
+              <img
+                src="img/wayne-barnett-founder-ceo.jpg"
+                alt="Wayne Barnett"
+              />
+            </div>
+            <div class="card-text">
+              <h3>Wayne Barnett</h3>
+              <p>Founder & CEO</p>
+            </div>
+          </div> -->
+
+
         </div>
       </div>
     </section>
@@ -33,17 +47,19 @@
         <h2 class="section-title">Add a new member</h2>
         <div class="form-container">
           <label for="name">Name </label>
-          <input type="text" id="name" placeholder="Full-name"/>
+          <input type="text" id="name" placeholder="Name"/>
+          <p id="errorMsg" class="err"></p>
           <label for="role">Role </label>
 
           <input type="text" id="role" placeholder="Job"/>
+          <p id="errorMsg2" class="err"></p>
           <label for="name">Image </label>
-          <input type="text" id="image" placeholder="insert URL"/>
+          <input type="text" id="image" placeholder="URL"/>
           <button type="button" id="addMemberButton">Add</button>
+          
         </div>
       </div>
     </section>
-
     <script src="js/script.js"></script>
   </body>
 </html>
